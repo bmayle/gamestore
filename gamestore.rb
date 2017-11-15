@@ -16,6 +16,11 @@ order_total = ps4_total + ps3_total + xboxone_total + xbox360_total
 
 puts
 puts "Welcome to FreeWorld Games!"
+puts "Are you a veteran?"
+choice = ["Yes!", "No!"]
+veteran = choice.sample
+puts veteran
+puts
 puts "What game would you like to purchase today?"
 
 #Randomly chooses the product the customer wants
@@ -90,6 +95,12 @@ order_total = ps4_total + ps3_total + xboxone_total + xbox360_total
 
 puts "Lets get your total and print you your receipt."
 puts
+# 20% off discount if veteran
+discount = order_total*0.20
+if veteran == "Yes!"
+	order_total = order_total-discount
+puts "You've saved " "$"+discount.to_s
+end
 
 puts "Your total comes to " "$"+order_total.to_s
 puts
@@ -109,23 +120,22 @@ puts
 if ps4_qty > 0
 puts ps4_qty.to_s + " PS4 games at " + "$"+ps4_price.to_s
 puts "PS4 total is " + "$"+ps4_total.to_s
-end
 puts
+end
 if ps3_qty > 0
 puts ps3_qty.to_s + " PS3 games at " + "$"+ps3_price.to_s
 puts "PS3 total is " + "$"+ps3_total.to_s
-end
 puts
+end
 if xboxone_qty > 0
 puts xboxone_qty.to_s + " XBOX_ONE games at " + "$"+xboxone_price.to_s
 puts "XBOX_ONE total is " +"$"+xboxone_total.to_s
-end
 puts
+end
 if xbox360_qty > 0
 puts xbox360_qty.to_s + " XBOX360 games at " + "$"+xbox360_price.to_s
-puts "XBOX360 total is " + "$"+xbox360_total.to_s
-end
 puts
+end
 puts "________________________________________"
 puts "TOTAL " "$"+order_total.to_s
 puts
