@@ -8,14 +8,26 @@ ps4_qty = 0
 ps3_qty = 0
 xboxone_qty = 0
 xbox360_qty = 0
+ps4_inv = 100
+ps3_inv = 100
+xboxone_inv = 100
+xbox360_inv = 100
 ps4_total = 0
 ps3_total = 0
 xboxone_total = 0
 xbox360_total = 0
 order_total = ps4_total + ps3_total + xboxone_total + xbox360_total
-
+puts
+puts "PS4 Inventory: "+ps4_inv.to_s
+puts
+puts "PS3 Inventory: "+ps3_inv.to_s
+puts
+puts "XBOX_ONE Inventory "+xboxone_inv.to_s
+puts
+puts "XBOX360 Inventory: "+xbox360_inv.to_s
 puts
 puts "Welcome to FreeWorld Games!"
+puts
 puts "Are you a veteran?"
 choice = ["Yes!", "No!"]
 veteran = choice.sample
@@ -37,15 +49,19 @@ puts
 if ask == "PS4"
 	ps4_total = ps4_price*request
 	ps4_qty = request
+	ps4_inv-= ps4_qty
 elsif ask == "PS3"
 	ps3_total = ps3_price*request
 	ps3_qty = request
-elsif ask == "XBOX_ONE"
+	ps3_inv-= ps3_qty
+elsif ask == "XBOX_ONE "
 	xboxone_total = xboxone_price*request
 	xboxone_qty = request
+	xboxone_inv-= xboxone_qty
 elsif ask == "XBOX360"
 	xbox360_total = xbox360_price*request
 	xbox360_qty = request
+	xbox360_inv-= xboxone_qty
 end
 
 # Randolmly chooses if the customer wants to purches any other games
@@ -68,15 +84,19 @@ puts
 if ask2 == "PS4"
 	ps4_total = ps4_price*request2
 	ps4_qty = request2
+	ps4_inv-= ps4_qty
 elsif ask2 == "PS3"
 	ps3_total = ps3_price*request2
 	ps3_qty = request2
+	ps3_inv-= ps3_qty
 elsif ask2 == "XBOX_ONE"
 	xboxone_total = xboxone_price*request2
 	xboxone_qty = request2
+	xboxone_inv-= xboxone_qty
 elsif ask2 == "XBOX360"
 	xbox360_total = xbox360_price*request2
 	xbox360_qty = request2
+	xbox360_inv-= xbox360_qty
 end
 
 product.delete(ask2) 
@@ -154,3 +174,11 @@ ________________________________________
 
 We appreciate your business!"
 puts "........................................."
+puts
+puts "PS4 Inventory: "+ps4_inv.to_s
+puts
+puts "PS3 Inventory: "+ps3_inv.to_s
+puts
+puts "XBOX_ONE Inventory "+xboxone_inv.to_s
+puts
+puts "XBOX360 Inventory: "+xbox360_inv.to_s
